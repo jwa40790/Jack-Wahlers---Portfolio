@@ -24,13 +24,28 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS 
 (Year, Month, Supplier, Item_Code, Item_Description, Item_Type, Retail_Sales, Retail_Transfer, Warehouse_Sales);
 
+
 -- making sure table is loaded
 SELECT * FROM Sales
 WHERE Month = 2;
 
+
+-- shows the item with the highest retail transfers per year 
+WITH RankedSales AS (
+    SELECT Item_Code, Item_Type, Item_Description, Retail_Transfer, Year,
+           ROW_NUMBER() OVER (PARTITION BY Year ORDER BY Retail_Transfer DESC) AS rn
+    FROM Sales
+)
+SELECT Item_Code, Item_Type, Item_Description, Retail_Transfer, Year
+FROM RankedSales
+WHERE rn = 1
+ORDER BY Retail_Transfer DESC;
+
+
 -- Items that have no retail or warehouse sales
 SELECT Item_Code, Item_Description FROM SALES 
 WHERE Retail_Sales AND Warehouse_Sales = 0;
+
 
 -- selects 25 top selling items for the year 2019
 SELECT Item_Code, Item_Description, Item_Type, Retail_Sales FROM Sales
@@ -38,9 +53,11 @@ WHERE Year = 2019
 ORDER BY Retail_Sales DESC
 LIMIT 25;
 
+
 -- percent of total sales that are retail
 SELECT SUM(Retail_Sales) * 100 / SUM(Warehouse_Sales + Retail_Sales) AS Pecent_Retail_Sales
 FROM Sales;
+
 
 -- yearly running total
 SELECT Year, Month, 
@@ -49,6 +66,7 @@ SELECT Year, Month,
 FROM Sales
 GROUP BY Year, Month
 ORDER BY Year, Month;
+
 
 -- ranks each item based on highest total sales
 SELECT Item_Code, Item_Description, Total_Sales,
