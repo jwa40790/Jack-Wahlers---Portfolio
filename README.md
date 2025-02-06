@@ -16,3 +16,9 @@ In this <a href='https://github.com/jwa40790/SQL-Portfolio/blob/main/WR_Sales.sq
 - Identified top-selling products based on total revenue
 - Used window functions to calculate moving averages of sales
 - Aggregated monthly sales per product category
+
+
+<h3>Connect With Me</h3>
+&#128231; Email: <a href='mailto:jackwahlers0201@gmail.com'>jackwahlers0201@gmail.com</a>
+<br>
+&#128279; LinkedIn: <a href='www.linkedin.com/in/jack-wahlers'>www.linkedin.com/in/jack-wahlers</a>
