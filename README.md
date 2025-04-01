@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 
 # Jack Wahlers Portfolio
-This repository contains examples of SQL and Python I've written for projects while trying to work on my coding skills. The projects demonstrate my ability to work with real-world datasets, write efficient queries, and apply advanced SQL techniques.
+This repository showcases examples of SQL and Python code I’ve written while improving my coding skills. These projects highlight my ability to work with real-world datasets, write efficient code, apply advanced SQL techniques, and perform in-depth data analysis.
 
 <h2>Highlighted Projects</h2>
 
