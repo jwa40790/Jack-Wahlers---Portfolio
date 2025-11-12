@@ -44,7 +44,7 @@ ORDER BY Retail_Transfer DESC;
 
 -- Items that have no retail or warehouse sales
 SELECT Item_Code, Item_Description FROM SALES 
-WHERE Retail_Sales AND Warehouse_Sales = 0;
+WHERE Retail_Sales = 0 AND Warehouse_Sales = 0;
 
 
 -- selects 25 top selling items for the year 2019
@@ -55,7 +55,7 @@ LIMIT 25;
 
 
 -- percent of total sales that are retail
-SELECT SUM(Retail_Sales) * 100 / SUM(Warehouse_Sales + Retail_Sales) AS Pecent_Retail_Sales
+SELECT SUM(Retail_Sales) * 100 / SUM(Warehouse_Sales + Retail_Sales) AS Percent_Retail_Sales
 FROM Sales;
 
 
